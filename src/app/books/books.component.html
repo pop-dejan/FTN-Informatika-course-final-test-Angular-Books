@@ -1,0 +1,24 @@
+<div class="row mt-3">
+    <div class="col text-center">
+      <div class="d-flex">
+        <form [formGroup]="form"  >
+          <input formControlName="search" type="text" placeholder="Author" style="width: 400px; margin-right: 40px;" />
+          <button class="btn btn-dark ml-5" (click)="onSearch()">Search</button>
+        </form>
+        <div class="form-check form-check-inline">
+          <input type="radio" name="gender" value="title" (change)="checkStatus($event);" class="form-check-input" style="margin-left: 50px;">
+          <label for="" style="margin-right: 100px;">Title</label>
+        </div>  
+        <div class="form-check form-check-inline">
+          <input type="radio" name="gender" value="author" (change)="checkStatus($event);" class="form-check-input" >
+          <label for="">Author</label>
+        </div>
+      </div>
+        <div class="row" >
+            <div class="col-6 mt-5 " style="text-align: start;" *ngFor="let book of books.results">
+              <app-book [book]="book"></app-book>
+            </div>
+            <app-pagination [page]="params.page" [pageSize]="params.pageSize" [collectionSize]="books.count"
+            (pageChange)="onPageChanged($event)" (pageSizeChange)="onPageSizeChanged($event)"></app-pagination>
+        </div>
+</div>

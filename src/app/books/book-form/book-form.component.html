@@ -1,0 +1,48 @@
+<div class="row mt-3">
+    <div class="col text-center">
+        <form [formGroup]="myForm">
+            <div class="form-group">
+              <label for="isbn">ISBN</label>
+              <input type="isbn" formControlName="ISBN" id="isbn" class="form-control">
+              <div *ngIf="myForm.controls['ISBN'].invalid && myForm.controls['ISBN'].touched">
+                <p class="text-danger">Niste uneli isbn! </p>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="title" formControlName="title" id="title" class="form-control">
+                <div *ngIf="myForm.controls['title'].invalid && myForm.controls['title'].touched">
+                  <p class="text-danger">Niste uneli title! </p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="author">Author</label>
+                <input type="author" formControlName="author" id="author" class="form-control">
+                <div *ngIf="myForm.controls['author'].invalid && myForm.controls['author'].touched">
+                  <p class="text-danger">Niste uneli autora! </p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="yearOfPublication">Year of publication</label>
+                <input type="yearOfPublication" formControlName="yearOfPublication" id="yearOfPublication" class="form-control">
+                <div *ngIf="myForm.controls['yearOfPublication'].invalid && myForm.controls['yearOfPublication'].touched">
+                  <p class="text-danger">Niste uneli godinu publikacije! </p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="publisher">Publisher</label>
+                <input type="publisher" formControlName="publisher" id="publisher" class="form-control">
+                <div *ngIf="myForm.controls['publisher'].invalid && myForm.controls['publisher'].touched">
+                  <p class="text-danger">Niste uneli izdavaca! </p>
+                </div>
+              </div>
+        
+            <button type="submit" [disabled]="myForm.invalid" (click)="onSubmit()" class="btn btn-primary" style="width: 100%;" *ngIf="vidi">Submit</button>
+            <button type="submit" [disabled]="myForm.invalid" (click)="onSubmitput()" class="btn btn-primary" style="width: 100%;" *ngIf="!vidi">Submit</button>
+        </form>
+    </div>
+</div>

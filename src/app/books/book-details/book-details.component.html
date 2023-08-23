@@ -1,0 +1,15 @@
+<div class="mt-5">
+  <app-book [book]="book" [vidi1]="vidi"></app-book>
+</div>
+
+  <div class="mt-5" *ngIf="reviews[0]">
+    <h3>Reviews</h3>
+    <div class="card" *ngFor="let review of reviews">
+        <div class="card-body">
+          <h5 class="card-title">{{review.title}} - <ngb-rating [rate]="review.score" [max]="5" [readonly]="true"></ngb-rating></h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{review.profileName}} - {{review.time | date}}</h6>
+          <p class="card-text">{{review.text}}</p>
+          <a (click)="onDelete(review)" class="card-link">Delete</a>
+        </div>
+    </div>
+  </div>

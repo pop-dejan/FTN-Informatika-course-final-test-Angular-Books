@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-12">
+        <div  data-toggle="buttons">
+            <label  [ngClass]="{active: pageSize== 10}" (click)="onPageSizeChanged(pageSize+10)">
+              <p>Show more</p>
+            </label>
+          </div>
+    </div>
+</div>
